@@ -1,6 +1,6 @@
-<h1 align="center">Sylius plugin, for Dialann Website</h1>
+<h1 align="center">Sylius plugin, for Add To cart and Cart Blamer</h1>
 
-<p align="center">Distributor, ... ect.</p>
+<p align="center"> ect.</p>
 
 ## Installation
 
