@@ -1,0 +1,2 @@
+imports:
+  - { resource: "@FMDDSyliusCartBlamerPlugin/Resources/config/services.yml" }
