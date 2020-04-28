@@ -8,6 +8,7 @@
 
 namespace FMDD\SyliusCartBlamerPlugin\Listener;
 
+use LogicException;
 use Sylius\Bundle\ResourceBundle\Event\ResourceControllerEvent;
 use Sylius\Component\Order\Model\OrderItemInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -18,7 +19,7 @@ final class AddToCartListener
     /**
      * @var RouterInterface
      */
-    private $router;
+    private RouterInterface $router;
 
     /**
      * @param RouterInterface $router
@@ -34,7 +35,7 @@ final class AddToCartListener
     public function onSuccessfulAddToCart(ResourceControllerEvent $event)
     {
         if (!$event->getSubject() instanceof OrderItemInterface) {
-            throw new \LogicException(
+            throw new LogicException(
                 sprintf('This listener operates only on order item, got "$s"', get_class($event->getSubject()))
             );
         }

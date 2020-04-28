@@ -18,7 +18,6 @@ final class FMDDSyliusCartBlamerExtension extends Extension
     {
         $config = $this->processConfiguration($this->getConfiguration([], $container), $config);
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-
         $loader->load('services.yml');
     }
 }
