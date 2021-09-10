@@ -9,6 +9,7 @@ services:
   sylius.listener.cart_blamer:
     class: FMDD\SyliusCartBlamerPlugin\EventListener\CartBlamerListener
     arguments:
+      - "@session.flash_bag"
       - "@sylius.manager.order"
       - "@sylius.context.cart"
       - "@sylius.context.cart.session_and_channel_based"

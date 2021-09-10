@@ -1,0 +1,2 @@
+fmdd_sylius_cart_blamer_plugin:
+    cart_merge: 'Your visitor cart has been merged with your account cart.'

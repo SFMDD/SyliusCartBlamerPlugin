@@ -1,0 +1,2 @@
+fmdd_sylius_cart_blamer_plugin:
+    cart_merge: 'Votre panier en tant que visiteur a été fusionné avec le panier de votre compte.'

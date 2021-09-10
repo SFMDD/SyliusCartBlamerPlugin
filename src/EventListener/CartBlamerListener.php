@@ -21,6 +21,7 @@ use Sylius\Component\Order\Context\CartContextInterface;
 use Sylius\Component\Order\Context\CartNotFoundException;
 use Sylius\Component\Resource\Exception\UnexpectedTypeException;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 
 /**
  * @author Michał Marcinkowski <michal.marcinkowski@lakion.com>
@@ -41,6 +42,10 @@ final class CartBlamerListener
      * @var CartContextInterface
      */
     private $sessionCartContext;
+    /**
+     * @var FlashBagInterface
+     */
+    private $flashBag;
 
     /**
      * @param ObjectManager        $cartManager
@@ -48,10 +53,12 @@ final class CartBlamerListener
      * @param CartContextInterface $sessionCartContext
      */
     public function __construct(
+        FlashBagInterface $flashBag,
         ObjectManager $cartManager,
         CartContextInterface $cartContext,
         CartContextInterface $sessionCartContext
     ) {
+        $this->flashBag        = $flashBag;
         $this->cartManager        = $cartManager;
         $this->cartContext        = $cartContext;
         $this->sessionCartContext = $sessionCartContext;
@@ -102,6 +109,7 @@ final class CartBlamerListener
             foreach ($sessionCart->getItems() as $item) {
                 $cart->addItem($item);
             }
+            $this->flashBag->add('info', 'fmdd_sylius_cart_blamer_plugin.cart_merge');
             $this->cartManager->remove($sessionCart);
             $this->cartManager->persist($sessionCart);
         } else {

@@ -1,0 +1,2 @@
+fmdd_sylius_cart_blamer_plugin:
+    cart_merge: 'Su cesta de la compra como visitante se ha fusionado con la cesta de la compra de su cuenta.'
