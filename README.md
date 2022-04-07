@@ -1,13 +1,3 @@
-
-## Installation
-
-* Run .
-
-* Import ressource.
-```yaml
-```
-
-
 <p align="center">
     <a href="https://fm2d.com/" target="_blank">
         <img height="50" width="auto" src="https://fm2d.com/fm2d-theme/images/logo.png" alt="FM2D logo" />
@@ -43,7 +33,7 @@ FM2D is a Web Agency publisher of Sylius plugins and open source actor. Since 20
 
 ---
 
-This plugin allow you to export accounting to csv file
+This plugin allow to your visitors to don't lost them cart if they get logged in with a non empty cart. 
 
 # Installation
 
