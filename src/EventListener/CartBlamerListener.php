@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace FMDD\SyliusCartBlamerPlugin\EventListener;
 
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Sylius\Bundle\UserBundle\Event\UserEvent;
 use Sylius\Component\Core\Model\OrderInterface;
 use Sylius\Component\Core\Model\ShopUserInterface;
@@ -29,7 +29,7 @@ use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 final class CartBlamerListener
 {
     /**
-     * @var ObjectManager
+     * @var EntityManagerInterface
      */
     private $cartManager;
 
@@ -48,13 +48,14 @@ final class CartBlamerListener
     private $flashBag;
 
     /**
-     * @param ObjectManager        $cartManager
-     * @param CartContextInterface $cartContext
-     * @param CartContextInterface $sessionCartContext
+     * @param FlashBagInterface         $flashBag
+     * @param EntityManagerInterface    $cartManager
+     * @param CartContextInterface      $cartContext
+     * @param CartContextInterface      $sessionCartContext
      */
     public function __construct(
         FlashBagInterface $flashBag,
-        ObjectManager $cartManager,
+        EntityManagerInterface $cartManager,
         CartContextInterface $cartContext,
         CartContextInterface $sessionCartContext
     ) {
